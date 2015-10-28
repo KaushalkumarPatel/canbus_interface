@@ -1,0 +1,7 @@
+<launch>
+  <arg name="can_name" default="can0" />
+
+    <node ns="$(arg can_name)" name="listener" type="canbus_send.py" pkg="canbus_interface" respawn="True" output="screen">
+       <param name="can_ifname" type="str" value="$(arg can_name)"/>
+    </node>
+</launch>

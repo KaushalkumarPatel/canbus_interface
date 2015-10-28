@@ -1,0 +1,14 @@
+# interfaces(5) file used by ifup(8) and ifdown(8)
+# add to /etc/network/interfaces for hotswapping
+
+allow-hotplug can0
+iface can0 can static
+	bitrate 250000
+
+allow-hotplug can1
+iface can1 can static
+	bitrate 500000
+
+allow-hotplug can2
+iface can2 can static
+	bitrate 250000

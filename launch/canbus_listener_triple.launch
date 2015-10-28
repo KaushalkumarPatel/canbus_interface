@@ -1,0 +1,11 @@
+<launch>
+    <node ns="can0" name="listener" type="canbus_listener.py" pkg="canbus_interface" respawn="True" output="screen">
+       <param name="can_ifname" type="str" value="can0"/>
+    </node>
+    <node ns="can1" name="listener" type="canbus_listener.py" pkg="canbus_interface" respawn="True" output="screen">
+       <param name="can_ifname" type="str" value="can1"/>
+    </node>
+    <node ns="can2" name="listener" type="canbus_listener.py" pkg="canbus_interface" respawn="True" output="screen">
+       <param name="can_ifname" type="str" value="can2"/>
+    </node>
+</launch>
