@@ -1,5 +1,7 @@
 <launch>
-    <node ns="can" name="listener" type="canbus_listener.py" pkg="canbus_interface" respawn="True" output="screen">
-       <param name="can_ifname" type="str" value="can0"/>
+  <arg name="can_name" default="can0" />
+
+    <node ns="$(arg can_name)" name="listener" type="canbus_listener.py" pkg="canbus_interface" respawn="True" output="screen">
+       <param name="can_ifname" type="str" value="$(arg can_name)"/>
     </node>
 </launch>
