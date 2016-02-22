@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import rospy
-from canbus_interface.msg import CanFrame
+from canbus_interface.msg import CanFrame2
 from canbus_interface.srv import CanFrameSrv
 import can
 
@@ -10,12 +10,12 @@ class canbus_ros_interface(can.Listener):
         # whenever a message appears on the bus, this node will try to publish it in the ros network
         notifier = can.Notifier(bus, [self])
 
-        self.canpub = rospy.Publisher('data', CanFrame,queue_size=10)
+        self.canpub = rospy.Publisher('data', CanFrame2,queue_size=10)
         self.cansrv = rospy.Service('send_frame', CanFrameSrv, self.send_message)
 
     def on_message_received(self,msg):
         #rospy.loginfo("received this %s"%(msg))
-        canframe = CanFrame()
+        canframe = CanFrame2()
         canframe.timestamp = rospy.Time.now()
         canframe.arbitration_id = msg.arbitration_id
 	    # rospy.loginfo("id_type %d"%(msg.id_type))

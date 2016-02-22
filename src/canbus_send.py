@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import rospy
-from canbus_interface.msg import CanFrame
+from canbus_interface.msg import CanFrame2
 from canbus_interface.srv import CanFrameSrv
 import can
 
@@ -12,11 +12,11 @@ class canbus_ros_interface(can.Listener):
 
        # self.canpub = rospy.Publisher('data', CanFrame,queue_size=10)
         self.cansrv = rospy.Service('send_frame', CanFrameSrv, self.send_message)
-        self.cansub = rospy.Subscriber('data', CanFrame, self.send_message2)
+        self.cansub = rospy.Subscriber('data', CanFrame2, self.send_message2)
 
     def on_message_received(self,msg):
     #     #rospy.loginfo("received this %s"%(msg))
-    #     canframe = CanFrame()
+    #     canframe = CanFrame2()
     #     canframe.timestamp = rospy.Time.now()
     #     canframe.arbitration_id = msg.arbitration_id
     #     canframe.isExtended = msg.id_type
