@@ -50,6 +50,7 @@ find_package(catkin REQUIRED COMPONENTS
    msg
    FILES
    CanFrame.msg
+   CanFrame2.msg
  )
 
 ## Generate services in the 'srv' folder
